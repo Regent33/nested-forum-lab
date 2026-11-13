@@ -12,23 +12,21 @@ A small forum that shows replies as a tree. Anyone can read a discussion. Only l
 
 ## Setup
 
-Requirements: PHP 8.2+ with `pdo_mysql`, MySQL 8 (or MariaDB), Composer.
+Requirements: PHP 8.2+ with `pdo_mysql`, MySQL 8 or MariaDB, Composer.
+
+I used the MariaDB 10.4 that comes with XAMPP. XAMPP's own PHP is 8.0, which is too old for this lab, so I ran the app with a separate PHP 8.3.
 
 1. Install dependencies:
    ```bash
    composer install
    ```
 2. Enable `pdo_mysql`: in `php.ini`, remove the `;` in front of `extension=pdo_mysql`.
-3. Create the database and seed data:
+3. Start MySQL in the XAMPP Control Panel, then create the database and seed data:
    ```bash
-   mysql -u root -p < database/schema.sql
+   mysql -u root < database/schema.sql
    ```
-   I ran MySQL in Docker:
-   ```bash
-   docker run -d --name forum-mysql -e MYSQL_ROOT_PASSWORD=<your password> -p 3306:3306 mysql:8
-   docker exec -i forum-mysql mysql -uroot -p<your password> < database/schema.sql
-   ```
-4. Set your database login as environment variables (nothing secret is in the repo). Defaults are `root`, an empty password and `127.0.0.1:3306/nested_forum`.
+   (In XAMPP, `mysql.exe` is in `xampp\mysql\bin`.)
+4. Set your database login as environment variables (nothing secret is in the repo). The defaults match a fresh XAMPP install: `root`, an empty password and `127.0.0.1:3306/nested_forum`.
    ```bash
    set DB_USER=root
    set DB_PASS=<your password>

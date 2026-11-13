@@ -51,7 +51,7 @@ abstract class Controller
         return $_SESSION['user_id'] ?? null;
     }
 
-    protected function logIn(int $id, string $username): void
+    protected function startSession(int $id, string $username): void
     {
         session_regenerate_id(true); // new session ID after login
         $_SESSION['user_id'] = $id;

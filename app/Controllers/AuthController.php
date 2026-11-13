@@ -43,7 +43,7 @@ class AuthController extends Controller
             $this->render('register', ['error' => 'That username or email is already registered.'], 422);
             return;
         }
-        $this->logIn($id, $username);
+        $this->startSession($id, $username);
         $this->redirect('/');
     }
 
@@ -68,7 +68,7 @@ class AuthController extends Controller
             $this->render('login', ['error' => 'Wrong username or password.', 'username' => $username], 401);
             return;
         }
-        $this->logIn($user['id'], $user['username']);
+        $this->startSession($user['id'], $user['username']);
         $this->redirect('/');
     }
 

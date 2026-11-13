@@ -2,6 +2,8 @@
 -- Run with: mysql -u root -p < database/schema.sql
 -- All timestamps are stored in UTC (the app sets the session time zone to +00:00).
 
+SET time_zone = '+00:00'; -- so the seed times below are read as UTC
+
 DROP DATABASE IF EXISTS nested_forum;
 CREATE DATABASE nested_forum CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE nested_forum;
