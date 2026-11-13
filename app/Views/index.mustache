@@ -1,0 +1,9 @@
+{{> header}}
+<h1>Discussions</h1>
+<ul>
+  {{#discussions}}
+    <li><a href="/discussions/{{id}}">{{title}}</a> <span class="meta">by {{author}} · {{created_at}} UTC</span></li>
+  {{/discussions}}
+  {{^discussions}}<li>No discussions yet.</li>{{/discussions}}
+</ul>
+{{> footer}}
